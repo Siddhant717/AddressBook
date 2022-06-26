@@ -121,6 +121,35 @@ namespace AddressBookProblems
                 Console.WriteLine("----------------------");
                 Console.WriteLine("Contact changed successfully as " + statement1);
             }
+
+        }
+        public void delete()
+        {
+            Console.WriteLine("Enter the Name to search : ");
+            string Name = Console.ReadLine();
+            try
+            {
+                foreach (var data in addressbook)
+                {
+                    if (addressbook.Contains(data))
+                    {
+                        if (data.FirstName == Name)
+                        {
+                            Console.WriteLine("Given Name Contact Exists");
+                            addressbook.Remove(data);
+
+                            Console.WriteLine("Contact Details Deleted Successfully");
+                            return;
+                        }
+                    }
+                }
+                Console.WriteLine("Given Name Contact does not Exists");
+            }
+            catch (Exception r)
+            {
+                Console.WriteLine(r.Message);
+            }
+
         }
     }
 
