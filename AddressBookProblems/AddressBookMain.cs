@@ -151,6 +151,16 @@ namespace AddressBookProblems
             }
 
         }
+        public void AddMultipleContacts(int n)
+        {
+
+            while (n > 0)
+            {
+                AddNewContacts();
+                n--;
+            }
+        }
     }
+
 
 }
