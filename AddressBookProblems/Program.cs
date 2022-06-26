@@ -8,10 +8,11 @@ namespace AddressBookProblems
         {
             Console.WriteLine("Welcome to AddressBook Program");
 
-            AddressBookMain addnewcontact = new AddressBookMain();
-            addnewcontact.AddNewContacts();
-            addnewcontact.Display();
-
+            AddressBookMain contactdetails = new AddressBookMain();
+            contactdetails.AddNewContacts();
+            contactdetails.Display();
+            contactdetails.EditContact();
+            
         }
     }
 }
