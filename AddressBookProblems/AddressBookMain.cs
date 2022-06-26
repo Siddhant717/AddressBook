@@ -9,6 +9,7 @@ namespace AddressBookProblems
     public class AddressBookMain
     {
         List<Contact> addressbook = new List<Contact>();
+        public Dictionary<string, List<Contact>> dict = new Dictionary<string, List<Contact>>();
 
         public void AddNewContacts()
         {
@@ -160,7 +161,61 @@ namespace AddressBookProblems
                 n--;
             }
         }
-    }
+        public void AddUniqueName()
+        {
+            Console.WriteLine("Enter the Firstname to Add Unique Name");
+            string name = Console.ReadLine();
+            foreach (var data in addressbook)
+            {
+                if (addressbook.Contains(data))
+                {
+                    if (data.FirstName == name)
+                    {
+                        Console.WriteLine("Please Enter an Unique Name");
+                        string uniquename = Console.ReadLine();
+                        if (dict.ContainsKey(uniquename))
+                        {
+                            Console.WriteLine("This unique name already exists");
+                        }
+                        dict.Add(uniquename, addressbook);
+                        return;
+                    }
+                }
+            }
+            Console.WriteLine("This Contact doesn't Exist");
+            return;
 
+        }
+
+
+        public void DisplayUniqueName()
+        {
+            Console.WriteLine("Enter the Uniquename of your contacts");
+            string name = Console.ReadLine();
+
+            foreach (var PersonContacts in dict)
+            {
+                if (PersonContacts.Key.Contains(name))
+                {
+                    foreach (var contact in PersonContacts.Value)
+                    {
+                        Console.WriteLine("Enter First Name: " + contact.FirstName);
+                        Console.WriteLine("Enter Last Name: " + contact.LastName);
+                        Console.WriteLine("Enter Address: " + contact.Address);
+                        Console.WriteLine("Enter City: " + contact.City);
+                        Console.WriteLine("Enter State: " + contact.State);
+                        Console.WriteLine("Enter Zip: " + contact.Zipcode);
+                        Console.WriteLine("Enter Phone Number: " + contact.PhoneNumber);
+                        Console.WriteLine("Enter Email: " + contact.Email);
+                        return;
+                    }
+                }
+
+
+
+
+            }
+        }
+    }
 
 }
