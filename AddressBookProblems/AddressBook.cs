@@ -382,9 +382,53 @@ namespace AddressBookProblems
                 }
 
             }
-
-
-
         }
+        public void SortingContactsByCity()
+        {
+
+            foreach (var data in addressbook.OrderBy(s => s.City).ToList())
+            {
+                if (addressbook.Contains(data))
+                {
+                    Console.WriteLine("Name of person : " + data.FirstName + " " + data.LastName);
+                    Console.WriteLine("Address of person is : " + data.Address);
+                    Console.WriteLine("City : " + data.City);
+                    Console.WriteLine("State :" + data.State);
+                    Console.WriteLine("Zip :" + data.Zipcode);
+                    Console.WriteLine("Phone Number of person: " + data.PhoneNumber);
+                    Console.WriteLine("Email of person : " + data.Email);
+                    Console.WriteLine();
+                }
+
+            }
+        }
+
+        public void SortingContactsByState()
+        {
+
+            foreach (var data in addressbook.OrderBy(s => s.State).ToList())
+            {
+                if (addressbook.Contains(data))
+                {
+                    Console.WriteLine("Name of person : " + data.FirstName + " " + data.LastName);
+                    Console.WriteLine("Address of person is : " + data.Address);
+                    Console.WriteLine("City : " + data.City);
+                    Console.WriteLine("State :" + data.State);
+                    Console.WriteLine("Zip :" + data.Zipcode);
+                    Console.WriteLine("Phone Number of person: " + data.PhoneNumber);
+                    Console.WriteLine("Email of person : " + data.Email);
+                    Console.WriteLine();
+                }
+
+            }
+        }
+
     }
 }
+
+
+
+
+
+    
+
