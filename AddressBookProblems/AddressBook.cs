@@ -1,4 +1,5 @@
 ﻿using CsvHelper;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -486,6 +487,34 @@ namespace AddressBookProblems
             }
         }
 
+        public void WriteDetailsToJSONFile()
+        {
+            string Path = @"D:\AddressBookUC2\Wapssai\AddressBookProblems\AddressBookProblems\AddressBook.json";
+            JsonSerializer serializer = new JsonSerializer();
+            using (StreamWriter sw = new StreamWriter(Path))
+            using (JsonWriter writer = new JsonTextWriter(sw))
+            {
+                serializer.Serialize(writer, addressbook);
+            }
+        }
+        public void ReadDetailsFromJSONFile()
+        {
+            string Path = @"D:\AddressBookUC2\Wapssai\AddressBookProblems\AddressBookProblems\AddressBook.json";
+            IList<Contact> addressData = JsonConvert.DeserializeObject<IList<Contact>>(File.ReadAllText(Path));
+
+            foreach (Contact person in addressData)
+            {
+                Console.WriteLine("First Name : " + person.FirstName + "\n" +
+                    "Last Name : " + person.LastName + "\n" +
+                    "Address : " + person.Address + "\n" +
+                    "City : " + person.City + "\n" +
+                    "State : " + person.State + "\n" +
+                    "Zip Code: " + person.Zipcode + "\n" +
+                    "Mobile Number : " + person.PhoneNumber + "\n" +
+                    "Email : " + person.Email);
+            }
+        }
+
     }
 
 }
@@ -493,7 +522,7 @@ namespace AddressBookProblems
 
 
 
-    
+
 
 
 

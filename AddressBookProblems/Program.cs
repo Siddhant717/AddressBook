@@ -15,7 +15,7 @@ namespace AddressBookProblems
                                                      "\n7)Display Unique Name \n8)Searching Person Contacts By a City or State\n9)View Person contacts By City \n10)View Person contacts By State" +
                                                      "\n11)Count Persons Contacts By City Or State\n12)Sorting alphabetically by Person’s name\n13)Sorting Persons Contacts By City " +
                                                      "\n14)Sorting Persons Contacts By State\n15) To Export the Person details from AddressBook to Text File\n16)Write to CSV file" +
-                                                     " \n17)Read Details From CSV File");
+                                                     " \n17)Read Details From CSV File \n18)Write Detailsto JSON file \n19)Read Details from JSON File");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
@@ -78,6 +78,12 @@ namespace AddressBookProblems
 
                     case 17:
                         contactdetails.ReadFromCSVFile();
+                        break;
+                    case 18:
+                        contactdetails.WriteToJSONFile();
+                        break;
+                    case 19:
+                        contactdetails.ReadFromJSONFile();
                         break;
 
                     default:
