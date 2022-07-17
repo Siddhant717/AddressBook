@@ -356,6 +356,16 @@ namespace AddressBookProblems
                 }
             }
         }
+       
+        public  void CountByCityOrState()
+        {
+            Console.WriteLine("Please enter the city : ");
+            string cityorstate = Console.ReadLine();
+            List<Contact> checkCityorState = addressbook.FindAll(x => (x.City == cityorstate || x.State == cityorstate));
+            Console.WriteLine("Number of Persons in the State {0} is {1}", cityorstate, checkCityorState.Count);
+
+        }
+       
 
 
 
