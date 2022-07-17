@@ -11,29 +11,51 @@ namespace AddressBookProblems
         List<Contact> addressbook = new List<Contact>();
         public Dictionary<string, List<Contact>> dict = new Dictionary<string, List<Contact>>();
 
-        public void AddNewContacts()
+        public void NotAddDuplicateRecord()
         {
-            Contact contact = new Contact();
-            Console.WriteLine("-------------------------");
-            Console.WriteLine("Enter your First name-");
-            contact.FirstName = Console.ReadLine();
-            Console.WriteLine("Enter your Last name-");
-            contact.LastName = Console.ReadLine();
-            Console.WriteLine("Enter your Address-");
-            contact.Address = Console.ReadLine();
-            Console.WriteLine("Enter your City-");
-            contact.City = Console.ReadLine();
-            Console.WriteLine("Enter your State-");
-            contact.State = Console.ReadLine();
-            Console.WriteLine("Enter your Zipcode-");
-            contact.Zipcode = int.Parse(Console.ReadLine());
-            Console.WriteLine("Enter your PhoneNumber-");
-            contact.PhoneNumber = long.Parse(Console.ReadLine());
-            Console.WriteLine("Enter your Email-");
-            contact.Email = Console.ReadLine();
+            Contact person = new();
+            int Flag = 0;
+            Console.WriteLine("Enter the First name :");
+            person.FirstName = Console.ReadLine();
+            string FirstNameToBeAdded = person.FirstName;
+            foreach (var data in addressbook)
+            {
+                if (addressbook.Exists(data => data.FirstName == FirstNameToBeAdded))
+                {
+                    Flag++;
+                    Console.WriteLine("This FirstName already Exist! Can't take the Duplicate Record.");
+                    break;
+                }
+            }
+            if (Flag == 0)
+            {
+                Console.Write("Enter Last Name: ");
+                person.LastName = Console.ReadLine();
 
-            addressbook.Add(contact);
-            Display();
+                Console.Write("Enter Address: ");
+                person.Address = Console.ReadLine();
+
+                Console.Write("Enter City: ");
+                person.City = Console.ReadLine();
+
+                Console.Write("Enter State: ");
+                person.State = Console.ReadLine();
+
+                Console.Write("Enter Zip: ");
+                person.Zipcode = Convert.ToInt32(Console.ReadLine());
+
+                Console.Write("Enter Phone Number: ");
+                person.PhoneNumber = Convert.ToInt64(Console.ReadLine());
+
+                Console.Write("Enter Email: ");
+                person.Email = Console.ReadLine();
+                addressbook.Add(person);
+                Console.WriteLine("********************************************************");
+
+
+            }
+
+
 
         }
 
@@ -157,7 +179,7 @@ namespace AddressBookProblems
 
             while (n > 0)
             {
-                AddNewContacts();
+                NotAddDuplicateRecord();
                 n--;
             }
         }

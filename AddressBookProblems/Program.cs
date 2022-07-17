@@ -16,7 +16,7 @@ namespace AddressBookProblems
                 switch (option)
                 {
                     case 1:
-                        contactdetails.AddNewContacts();
+                        contactdetails.NotAddDuplicateRecord();
                         break;
                     case 2:
                         contactdetails.Display();
