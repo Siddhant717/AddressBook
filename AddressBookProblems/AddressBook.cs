@@ -356,18 +356,35 @@ namespace AddressBookProblems
                 }
             }
         }
-       
-        public  void CountByCityOrState()
+
+        public void CountByCityOrState()
         {
-            Console.WriteLine("Please enter the city : ");
+            Console.WriteLine("Please enter the city or state : ");
             string cityorstate = Console.ReadLine();
             List<Contact> checkCityorState = addressbook.FindAll(x => (x.City == cityorstate || x.State == cityorstate));
             Console.WriteLine("Number of Persons in the State {0} is {1}", cityorstate, checkCityorState.Count);
 
         }
-       
+        public void SortingContactsByName()
+        {
+            foreach (var data in addressbook.OrderBy(s => s.FirstName).ToList())
+            {
+                if (addressbook.Contains(data))
+                {
+                    Console.WriteLine("Name of the Person : " + data.FirstName + " " + data.LastName);
+                    Console.WriteLine("Email ID : " + data.Email);
+                    Console.WriteLine("Mobile Number : " + data.PhoneNumber);
+                    Console.WriteLine("Address : " + data.Address);
+                    Console.WriteLine("City : " + data.City);
+                    Console.WriteLine("State : " + data.State);
+                    Console.WriteLine("Zip : " + data.Zipcode);
+                    Console.WriteLine("\n");
+                }
+
+            }
 
 
 
+        }
     }
 }
