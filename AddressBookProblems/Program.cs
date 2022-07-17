@@ -11,7 +11,7 @@ namespace AddressBookProblems
             AddressBookMain contactdetails = new AddressBookMain();
             while (true)
             {
-                Console.WriteLine("Enter the option : \n1)Adding Contact \n2)Display contact \n3)Editing Contacts \n4)Delete Contacts\n5)Adding Multiple Contacts\n6)Adding Unique Name \n7)Display Unique Name");
+                Console.WriteLine("Enter the option : \n1)Adding Contact \n2)Display contact \n3)Editing Contacts \n4)Delete Contacts\n5)Adding Multiple Contacts\n6)Adding Unique Name \n7)Display Unique Name \n8)Searching Person Contacts By a City or State");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
@@ -37,6 +37,9 @@ namespace AddressBookProblems
                         break;
                     case 7:
                         contactdetails.DisplayUniqueName();
+                        break;
+                    case 8:
+                        contactdetails.SearchByCityState();
                         break;
                     default:
                         Console.WriteLine("Please Choose From Above Given Options");

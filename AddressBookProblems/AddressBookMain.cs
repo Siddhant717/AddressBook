@@ -238,6 +238,30 @@ namespace AddressBookProblems
 
             }
         }
-    }
+        public void SearchByCityState()
+        {
+            Console.WriteLine("Please Enter the name of City or State:");
+            string SearchCityOrState = Console.ReadLine();
+            foreach (var data in addressbook)
+            {
+                if (addressbook.Exists(data => (data.City == SearchCityOrState) || (data.State == SearchCityOrState)))
+                {
+                    if ((data.City == SearchCityOrState) || (data.State == SearchCityOrState))
+                    {
+                        Console.WriteLine("Name of person : " + data.FirstName + " " + data.LastName);
+                        Console.WriteLine("Address of person is : " + data.Address);
+                        Console.WriteLine("City : " + data.City);
+                        Console.WriteLine("State :" + data.State);
+                        Console.WriteLine("Zip :" + data.Zipcode);
+                        Console.WriteLine("Phone Number of person: " + data.PhoneNumber);
+                        Console.WriteLine("Email of person : " + data.Email);
+                        Console.WriteLine();
 
+
+                    }
+                }
+            }
+        }
+
+    }
 }
