@@ -8,13 +8,13 @@ namespace AddressBookProblems
 {
     public class Contact
     {
-        public string FirstName;
-        public string LastName;
-        public string Address;
-        public string City;
-        public string State;
-        public int Zipcode;
-        public long PhoneNumber;
-        public string Email;
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Address { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
+        public int Zipcode { get; set; }
+        public long PhoneNumber { get; set; }
+        public string Email { get; set; }
     }
 }

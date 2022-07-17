@@ -1,5 +1,7 @@
-﻿using System;
+﻿using CsvHelper;
+using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -423,7 +425,7 @@ namespace AddressBookProblems
 
             }
         }
-        public  void WriteAddressbookintoTextFile()
+        public void WriteAddressbookintoTextFile()
         {
             string path = @"D:\AddressBookUC2\Wapssai\AddressBookProblems\AddressBookProblems\AddressBook.txt";
             using (StreamWriter sw = new StreamWriter(path))
@@ -444,14 +446,59 @@ namespace AddressBookProblems
                 }
                 Console.ReadKey();
             }
+
+
+        }
+        public void WriteAddressbookintoCSVFile()
+        {
+            string path = @"D:\AddressBookUC2\Wapssai\AddressBookProblems\AddressBookProblems\AddressBook.csv";
+
+            Console.WriteLine("********* Reading the File and Write to CSV File **********");
+
+            //Writing the User data in to CSV file
+            using (StreamWriter sw = new StreamWriter(path))
+            using (CsvWriter csvWrite = new CsvWriter(sw, CultureInfo.InvariantCulture))
+            {
+                csvWrite.WriteRecords(addressbook);
+            }
+
+        }
+
+        public void ReadFromCSVFile()
+        {
+            string path = @"D:\AddressBookUC2\Wapssai\AddressBookProblems\AddressBookProblems\AddressBook.csv";
+            using (StreamReader sr = new StreamReader(path))
+            using (CsvReader csvRead = new CsvReader(sr, CultureInfo.InvariantCulture))
+            {
+                //Reading the user data from CSV file
+                var result = csvRead.GetRecords<Contact>().ToList();
+                foreach (Contact person in addressbook)
+                {
+                    Console.WriteLine("First Name : " + person.FirstName + "\n" +
+                        "Last Name : " + person.LastName + "\n" +
+                        "Address : " + person.Address + "\n" +
+                        "City : " + person.City + "\n" +
+                        "State : " + person.State + "\n" +
+                        "Zip Code: " + person.Zipcode + "\n" +
+                        "Mobile Number : " + person.PhoneNumber + "\n" +
+                        "Email : " + person.Email);
+                }
+            }
         }
 
     }
+
 }
 
 
 
 
-
     
+
+
+
+
+
+
+
 
