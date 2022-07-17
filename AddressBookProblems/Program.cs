@@ -14,7 +14,7 @@ namespace AddressBookProblems
                 Console.WriteLine("Enter the option : \n1)Adding Contact \n2)Display contact \n3)Editing Contacts \n4)Delete Contacts\n5)Adding Multiple Contacts\n6)Adding Unique Name " +
                                                      "\n7)Display Unique Name \n8)Searching Person Contacts By a City or State\n9)View Person contacts By City \n10)View Person contacts By State" +
                                                      "\n11)Count Persons Contacts By City Or State\n12)Sorting alphabetically by Person’s name\n13)Sorting Persons Contacts By City " +
-                                                     "\n14)Sorting Persons Contacts By State");
+                                                     "\n14)Sorting Persons Contacts By State\n15) To Export the Person details from AddressBook to Text File");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
@@ -66,6 +66,10 @@ namespace AddressBookProblems
                     case 14:
                         Console.WriteLine("Sorting Persons Contacts by State");
                         contactdetails.SortingContactsByState();
+                        break;
+                    case 15:
+                   
+                        contactdetails.WriteAddressbookintoTextFile();
                         break;
                     default:
                         Console.WriteLine("Please Choose From Above Given Options");

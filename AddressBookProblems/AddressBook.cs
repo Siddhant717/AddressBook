@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -420,6 +421,28 @@ namespace AddressBookProblems
                     Console.WriteLine();
                 }
 
+            }
+        }
+        public  void WriteAddressbookintoTextFile()
+        {
+            string path = @"D:\AddressBookUC2\Wapssai\AddressBookProblems\AddressBookProblems\AddressBook.txt";
+            using (StreamWriter sw = new StreamWriter(path))
+            {
+                foreach (Contact person in addressbook)
+                {
+                    sw.WriteLine("First Name : " + person.FirstName + "\n" +
+                        "Last Name : " + person.LastName + "\n" +
+                        "Address : " + person.Address + "\n" +
+                        "City : " + person.City + "\n" +
+                        "State : " + person.State + "\n" +
+                        "Zip Code: " + person.Zipcode + "\n" +
+                        "Mobile Number : " + person.PhoneNumber + "\n" +
+                        "Email : " + person.Email);
+                    sw.Close();
+                    Console.WriteLine(File.ReadAllText(path));
+                    Console.WriteLine("Person details are successfully Exported to Text File");
+                }
+                Console.ReadKey();
             }
         }
 
