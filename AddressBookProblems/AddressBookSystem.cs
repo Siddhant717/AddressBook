@@ -125,6 +125,37 @@ namespace AddressBookProblems
 
             Console.ReadKey();
         }
+
+        //Retrieve Number of Contacts in AddressBook by City
+        public static int CountOfContactDetailsByCity()
+        {
+            var SQL = @$"select count(*) from Address_Book where City='Pune'";
+            string connectingString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=AddressBookService;Integrated Security=True";
+            SqlConnection connection = new SqlConnection(connectingString);
+            SqlCommand cmd = new SqlCommand(SQL, connection);
+            connection.Open();
+
+            int count = (int)cmd.ExecuteScalar();
+            connection.Close();
+            return count;
+            
+
+        }
+
+        //Retrieve Number of Contacts in AddressBook by State 
+        public static int CountOfContactDetailsByState()
+        {
+            var SQL = @$"select count(*) from Address_Book where State='Karnataka'";
+            string connectingString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=AddressBookService;Integrated Security=True";
+            SqlConnection connection = new SqlConnection(connectingString);
+            SqlCommand cmd = new SqlCommand(SQL, connection);
+            connection.Open();
+
+            int count = (int)cmd.ExecuteScalar();
+            connection.Close();
+            return count;
+           
+        }
     }
 }
 
