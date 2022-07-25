@@ -62,5 +62,21 @@ namespace AddressBookProblems
                 connection.Close();
             }
         }
+
+        //Updating the information in the address Book for a person 
+        public static void UpdateDetails()
+        {
+            var SQL = @$"update Address_Book set PhoneNumber  = '9999666673' where FirstName = 'Siddhant'";
+            string connectingString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=AddressBookService;Integrated Security=True";
+            SqlConnection connection = new SqlConnection(connectingString);
+            SqlCommand cmd = new SqlCommand(SQL, connection);
+            connection.Open();
+            int reader = cmd.ExecuteNonQuery();
+            Console.WriteLine(reader);
+            Console.WriteLine("Command Completed Successfully");
+            Console.ReadKey();
+            connection.Close();
+        }
     }
 }
+    
