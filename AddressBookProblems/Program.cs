@@ -16,7 +16,8 @@ namespace AddressBookProblems
                                                      "\n11)Count Persons Contacts By City Or State\n12)Sorting alphabetically by Person’s name\n13)Sorting Persons Contacts By City " +
                                                      "\n14)Sorting Persons Contacts By State\n15) To Export the Person details from AddressBook to Text File\n16)Write to CSV file" +
                                                      " \n17)Read Details From CSV File \n18)Write Detailsto JSON file \n19)Read Details from JSON File \n20) To fetch ContactDetails from Database" +
-                                                     "\n21)Update Employee Details\n22)Contacts in date range\n23)Retrieve contact details by City\n24)Retrieve contact details by State");
+                                                     "\n21)Update Employee Details\n22)Contacts in date range\n23)Retrieve contact details by City\n24)Retrieve contact details by State" +
+                                                     "\n25)Add new contact to database");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
@@ -103,10 +104,14 @@ namespace AddressBookProblems
                         int Result = AddressBookSystem.CountOfContactDetailsByState();
                         Console.WriteLine("Count of Record by State is " + Result);
                         break;
+                    case 25:
+                        AddressBookSystem.AddNewContact();
+                        break;
 
                     default:
                         Console.WriteLine("Please Choose From Above Given Options");
                         break;
+
 
                 }
             }

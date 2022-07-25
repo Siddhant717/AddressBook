@@ -156,6 +156,20 @@ namespace AddressBookProblems
             return count;
            
         }
+        //Add New Contact information in the address Book
+        public static void AddNewContact() 
+        {
+            var SQL = @$"insert into Address_Book Values ('Taniya','Sharma','WW colony','Gwalior', 'MP','654327',8843676627,'Taniya@gmail.com', '2', 'Family', '2022-03-15')";
+            string connectingString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=AddressBookService;Integrated Security=True";
+            SqlConnection connection = new SqlConnection(connectingString);
+            SqlCommand cmd = new SqlCommand(SQL, connection);
+            connection.Open();
+            int reader = cmd.ExecuteNonQuery();
+            Console.WriteLine(reader);
+            Console.WriteLine("Commands Completed Successfully");
+            Console.ReadKey();
+            connection.Close();
+        }
     }
 }
 
