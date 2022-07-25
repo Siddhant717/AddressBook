@@ -16,5 +16,6 @@ namespace AddressBookProblems
         public int Zipcode { get; set; }
         public long PhoneNumber { get; set; }
         public string Email { get; set; }
+      
     }
 }

@@ -16,7 +16,7 @@ namespace AddressBookProblems
                                                      "\n11)Count Persons Contacts By City Or State\n12)Sorting alphabetically by Person’s name\n13)Sorting Persons Contacts By City " +
                                                      "\n14)Sorting Persons Contacts By State\n15) To Export the Person details from AddressBook to Text File\n16)Write to CSV file" +
                                                      " \n17)Read Details From CSV File \n18)Write Detailsto JSON file \n19)Read Details from JSON File \n20) To fetch ContactDetails from Database" +
-                                                     "\n21)Update Employee Details");
+                                                     "\n21)Update Employee Details\n22)Contacts in date range");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
@@ -91,6 +91,9 @@ namespace AddressBookProblems
                         break;
                     case 21:
                         AddressBookSystem.UpdateDetails();
+                        break;
+                    case 22:
+                        AddressBookSystem.GetDetailsInPeroid();
                         break;
 
                     default:

@@ -18,6 +18,8 @@ namespace AddressBookProblems
         public string Email { get; set; }
         public int AddressBookId { get; set; }
         public string Type { get; set; }
-        
+
+        public DateTime Date_Added { get; set; }
+
     }
 }
