@@ -1,0 +1,10 @@
+{
+ "addressbook": [
+
+{"FirstName":"Siddhant","LastName":"Shrivastava","Address":"XYZ","City":"Ujjain","State":"MP","Zipcode":666786,"PhoneNumber":9998887788,"Email":"Siddhant@gmail.com","id":1},
+{"FirstName":"Shreya","LastName":"Vyas","Address":"XYZ","City":"Mumabi","State":"Maharashtra","Zipcode":446786,"PhoneNumber":7798847788,"Email":"Shreya@gmail.com","id":2},
+{"FirstName":"Rahul","LastName":"Panwar","Address":"TTT","City":"Pune","State":"Maharashtra","Zipcode":556756,"PhoneNumber":998887788,"Email":"Rahul@gmail.com","id":3},
+{"FirstName":"Anamika","LastName":"Singh","Address":"PPP","City":"Indore","State":"MP","Zipcode":657786,"PhoneNumber":8898887788,"Email":"Anamika@gmail.com","id":4},
+{"FirstName":"Apoorv","LastName":"Jain","Address":"MMY","City":"Surat","State":"Gujarat","Zipcode":666486,"PhoneNumber":7798887789,"Email":"Apoorv@gmail.com","id":5}
+]
+}

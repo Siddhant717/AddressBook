@@ -1,0 +1,17 @@
+1-> Installed the json server  using  this command in git bash-
+npm install -g json-server
+
+2> Created Address_Book.json file  using this command -
+nano Address_Book.json
+
+3-> Saved the data in json format.
+
+4>To get the local host ,command used-
+json-server --watch Address_Book.json
+http://localhost:3000/addressbook
+
+ 5>By searching the above link in browser,we get all the data stored in Address_Book.json 
+
+6>Curl command ->
+a>To get all the list fromAddress_Book.json, command used->
+curl -X GET -H "Content-Type: application/json" "http://localhost:4000/addressbook/list"
