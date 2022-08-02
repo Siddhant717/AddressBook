@@ -138,7 +138,7 @@ namespace AddressBookProblems
             int count = (int)cmd.ExecuteScalar();
             connection.Close();
             return count;
-            
+
 
         }
 
@@ -154,10 +154,10 @@ namespace AddressBookProblems
             int count = (int)cmd.ExecuteScalar();
             connection.Close();
             return count;
-           
+
         }
         //Add New Contact information in the address Book
-        public static void AddNewContact() 
+        public static void AddNewContact()
         {
             var SQL = @$"insert into Address_Book Values ('Taniya','Sharma','WW colony','Gwalior', 'MP','654327',8843676627,'Taniya@gmail.com', '2', 'Family', '2022-03-15')";
             string connectingString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=AddressBookService;Integrated Security=True";
@@ -169,6 +169,25 @@ namespace AddressBookProblems
             Console.WriteLine("Commands Completed Successfully");
             Console.ReadKey();
             connection.Close();
+        }
+        public static void AddMultipleContact()
+        {
+            var SQL = @$"insert into Address_Book Values ('Disha','Sharma','YY colony','Mumbai', 'Maharashtra','554327',8745675627,'Disha@gmail.com', '2', 'Family', '2022-04-20'),
+                                                         ('Atharva','Vedh','ZZ colony','Mumbai', 'Maharashtra','654427',8843637623,'Atharva@gmail.com', '2', 'Family', '2022-07-01')";
+            string connectingString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=AddressBookService;Integrated Security=True";
+            SqlConnection connection = new SqlConnection(connectingString);
+            SqlCommand cmd = new SqlCommand(SQL, connection);
+          
+            Task thread = new Task(() =>
+            {
+                connection.Open();
+                int reader = cmd.ExecuteNonQuery();
+                Console.WriteLine(reader);
+                Console.WriteLine("Commands Completed Successfully");
+                Console.ReadKey();
+            });
+            thread.Start();
+             connection.Close();
         }
     }
 }
